@@ -40,3 +40,5 @@
 ## Accelerometer / Gyro documents
 * [Accelerometer WPILib screensteps](http://wpilib.screenstepslive.com/s/4485/m/13809/l/241870-accelerometers-measuring-acceleration-and-tilt)
 * [Gyro WPILib screensteps](https://wpilib.screenstepslive.com/s/4485/m/13810/l/241871-gyros-measuring-rotation-and-controlling-robot-driving-direction)
+
+# Tom loves EMACS!
