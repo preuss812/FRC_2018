@@ -18,7 +18,14 @@
 ## Technical resources
 * [2018 FRC Control System](https://wpilib.screenstepslive.com/s/currentCS)
 * [New Control Systems for 2018](https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/801080-new-for-2018)
+* CTRE Firmware is located in C:\Users\Public\Documents\FRC
+* [CTRE toolsuite installation instructions](http://www.ctr-electronics.com/downloads/pdf/CTRE%20Toolsuite%20Installation%20Guide.pdf)
+* [CTRE software downloads](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources)
+* [Programming the Radio](https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144986-programming-your-radio)
 * [Current Software Versions]()
+
+# RoboRio local URL
+* [http://roborio-812-frc.local/](http://roborio-812-frc.local/)
 
 ## Vision Processing / GRIP documents
 * [GRIP - Graphical Image Processing](https://wpilib.screenstepslive.com/s/4485/m/50711?data-resolve-url=true&data-manual-id=50711)
