@@ -14,11 +14,12 @@ package org.usfirst.frc812.BB9.subsystems;
 import org.usfirst.frc812.BB9.Robot;
 import org.usfirst.frc812.BB9.RobotMap;
 import org.usfirst.frc812.BB9.commands.*;
+import org.usfirst.frc812.BB9.subsystems.XboxControllerSubsystem.Axis;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
-
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -45,16 +46,12 @@ public class DriveTrain extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void takeJoystickInputs(Joystick left, Joystick right) {
-    	//robotDrive41.tankDrive(left, right);
-    //	robotDrive41.tankDrive(-left.getY(), -right.getY());
-    	// 2016-01-21 - experimented and found that Arcade drive works better.
-    	// The third parameter, squaredInputs, was not tried as true, so we should 
-    	// drive test is next time.
+    public void takeJoystickInputs(Axis JoyLeft, Axis JoyRight) {
     	
-    	lastX = powerTrim(right.getX());
-    	lastY = powerTrim(right.getY());
-    	lastRotate = powerTrim(left.getX());
+    	lastX = powerTrim(JoyRight.X);
+    	lastY = powerTrim(JoyRight.Y);
+    	lastRotate = powerTrim(JoyLeft.X);
+    	
     	System.out.println("lastx=" + lastX + " lastY=" + lastY + " lastRotate=" + lastRotate);
     	robotDrive.driveCartesian(lastX, lastY, lastRotate);
 //    	robotDrive.arcadeDrive(right.getY(), -right.getX(), true);

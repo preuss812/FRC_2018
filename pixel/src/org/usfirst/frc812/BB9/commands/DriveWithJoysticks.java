@@ -13,6 +13,7 @@ package org.usfirst.frc812.BB9.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc812.BB9.Robot;
+import org.usfirst.frc812.BB9.subsystems.XboxControllerSubsystem;
 
 /**
  *
@@ -43,8 +44,8 @@ public class DriveWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.takeJoystickInputs(Robot.oi.getLeftJoystick(), 
-    										Robot.oi.getRightJoystick());
+    	Robot.driveTrain.takeJoystickInputs(Robot.xboxControllerSubsystem.LeftStick, 
+    										Robot.xboxControllerSubsystem.RightStick );
     }
 
     // Make this return true when this Command no longer needs to run execute()
