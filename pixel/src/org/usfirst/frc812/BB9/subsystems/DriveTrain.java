@@ -14,7 +14,6 @@ package org.usfirst.frc812.BB9.subsystems;
 import org.usfirst.frc812.BB9.Robot;
 import org.usfirst.frc812.BB9.RobotMap;
 import org.usfirst.frc812.BB9.commands.*;
-import org.usfirst.frc812.BB9.subsystems.XboxControllerSubsystem.Axis;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -46,11 +45,11 @@ public class DriveTrain extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void takeJoystickInputs(Axis JoyLeft, Axis JoyRight) {
+    public void takeJoystickInputs(XboxController xbc) {
     	
-    	lastX = powerTrim(JoyRight.X);
-    	lastY = powerTrim(JoyRight.Y);
-    	lastRotate = powerTrim(JoyLeft.X);
+    	lastX = powerTrim(xbc.getRawAxis(0)); // left xbox joystick X axis
+    	lastY = powerTrim(xbc.getRawAxis(1)); // left xbox joystick Y axis
+    	lastRotate = powerTrim(xbc.getRawAxis(4)); // right xbox joystick X axis
     	
     	System.out.println("lastx=" + lastX + " lastY=" + lastY + " lastRotate=" + lastRotate);
     	robotDrive.driveCartesian(lastX, lastY, lastRotate);
