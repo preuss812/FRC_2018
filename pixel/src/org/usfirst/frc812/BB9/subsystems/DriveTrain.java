@@ -47,9 +47,9 @@ public class DriveTrain extends Subsystem {
     // here. Call these from Commands.
     public void takeJoystickInputs(XboxController xbc) {
     	
-    	lastX = powerTrim(xbc.getRawAxis(0)); // left xbox joystick X axis
-    	lastY = powerTrim(xbc.getRawAxis(1)); // left xbox joystick Y axis
-    	lastRotate = powerTrim(xbc.getRawAxis(4)); // right xbox joystick X axis
+    	lastX = powerTrim(xbc.getRawAxis(4)); // right xbox joystick X axis (strafe left, right)
+    	lastY = -powerTrim(xbc.getRawAxis(5)); // right xbox joystick Y axis (fwd, back)
+    	lastRotate = powerTrim(xbc.getRawAxis(0)); // left xbox joystick X axis
     	
     	System.out.println("lastx=" + lastX + " lastY=" + lastY + " lastRotate=" + lastRotate);
     	robotDrive.driveCartesian(lastX, lastY, lastRotate);
@@ -57,8 +57,11 @@ public class DriveTrain extends Subsystem {
     }
 
     public double powerTrim(double value) {
-    	if(Math.abs(value) <= 0.09) {
-    		return(0.0);
+ 
+    	if( value >= 0.5) {
+    		return(0.5);
+    	} else if( value <= -0.5) {
+    		return(-0.5);
     	} else {
     		return(value);
     	}
