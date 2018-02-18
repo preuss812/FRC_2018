@@ -45,6 +45,7 @@ public class RobotMap {
     public static WPI_TalonSRX RightRear;
     public static WPI_TalonSRX leftFront;
     public static WPI_TalonSRX armMotor;
+    public static WPI_TalonSRX winch;
     public static DifferentialDrive dtProtoRobotDrive;
     public static DifferentialDrive dtProductionRobotDrive;
     public static MecanumDrive dtMecanumDrive;
@@ -79,6 +80,7 @@ public class RobotMap {
     	RightRear = new WPI_TalonSRX(3);
         RightFront = new WPI_TalonSRX(4);
         LeftRear = new WPI_TalonSRX(5);
+        winch = new WPI_TalonSRX(23);
         
         // Set ramp rate for some level of control
         leftFront.configClosedloopRamp(rampRateSeconds, 0);

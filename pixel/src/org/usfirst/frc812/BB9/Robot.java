@@ -205,6 +205,8 @@ public class Robot extends IterativeRobot {
 		RobotMap.armMotor.set(Robot.oi.leftJoystick.getY());
         System.out.println("Sensor Position = " + RobotMap.armMotor.getSelectedSensorPosition(0));
 
+		RobotMap.winch.set(Robot.oi.rightJoystick.getY());
+
 	}
 		
 	/**

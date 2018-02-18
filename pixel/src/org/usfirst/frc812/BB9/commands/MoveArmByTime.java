@@ -6,20 +6,17 @@ import edu.wpi.first.wpilibj.command.Command;
 
 
 
-public class DriveByTime extends Command {
+public class MoveArmByTime extends Command {
 	private double Y_Speed;
-	private double X_Speed;
 	private double Seconds;
 	/*
 	 * 
 	 */
-	public DriveByTime(double ySpeed, double xSpeed, double seconds) {
-		requires(Robot.driveTrain);
+	public MoveArmByTime(double ySpeed, double seconds) {
 		Y_Speed=ySpeed;
-		X_Speed = xSpeed;
 		Seconds = seconds;
 		setTimeout(Seconds);
-		System.out.println("DriveByTime " + ySpeed + " " + xSpeed + " " + seconds );
+		System.out.println("MoveArmByTime yspeed=" + ySpeed + ", duration=" + seconds + " seconds");
 	}
     protected void initialize() {
     
@@ -27,10 +24,7 @@ public class DriveByTime extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("DriveByTime:execute " + Y_Speed + " " + X_Speed);
-    	RobotMap.dtMecanumDrive.driveCartesian(Y_Speed, X_Speed, 0.0);
-  //  	RobotMap.dtMecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation);
-    	//RobotMap.dtProductionRobotDrive.curvatureDrive(Speed, Direction,true);
+    	RobotMap.armMotor.set(Y_Speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,7 +34,7 @@ public class DriveByTime extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.dtMecanumDrive.stopMotor();
+    	RobotMap.armMotor.stopMotor();
     }
 
     // Called when another command which requires one or more of the same

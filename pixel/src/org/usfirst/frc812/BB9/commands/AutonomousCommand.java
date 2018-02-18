@@ -65,7 +65,7 @@ public class AutonomousCommand extends Command {
 	// this timeout is for overall safety purposes to ensure that autonomous mode exits
 	// regardless of what we actually do in autonomous mode.
 
-	this.setTimeout(15);
+    	this.setTimeout(15);
 	// Robot.drivelineSubsystem.rightEnc.reset();
 	// DrivelineSubsystem.leftEnc.reset();
 	// How long is it to drive in autonomous?
@@ -75,7 +75,13 @@ public class AutonomousCommand extends Command {
     protected void execute() {
     	System.out.println("execute activated");
 //	DriveByTime driveByTimeCommand = null;
-	AutonomousCommandGroup autoCmdGroup =null ;//was null
+	//AutonomousCommandGroup autoCmdGroup =null ;//was null
+    	AutonomousCommandGroup autoCmdGroup;
+    	autoCmdGroup =new AutonomousCommandGroup();
+    	if(autoCmdGroup != null) {
+    		autoCmdGroup.start();
+    		this.end();
+    	}
 	
     }
 	
@@ -104,12 +110,12 @@ public class AutonomousCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-	return isTimedOut();
+    	return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-	RobotMap.dtProductionRobotDrive.stopMotor();
+    	RobotMap.dtMecanumDrive.stopMotor();
     }
 
     // Called when another command which requires one or more of the same

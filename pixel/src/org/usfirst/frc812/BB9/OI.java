@@ -73,9 +73,7 @@ public class OI {
         leftJoystick = new Joystick(0);
         xboxController = new XboxController(3);
         
-        //Trigger Winch Button 
-        triggerWinch = new JoystickButton(rightJoystick,5);
-        
+              
         // Buttons for controlling the arm. 
         lowArm = new JoystickButton(leftJoystick, 4);
         midArm = new JoystickButton(leftJoystick,3);
