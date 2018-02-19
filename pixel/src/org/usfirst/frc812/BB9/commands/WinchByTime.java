@@ -6,17 +6,17 @@ import edu.wpi.first.wpilibj.command.Command;
 
 
 
-public class MoveArmByTime extends Command {
+public class WinchByTime extends Command {
 	private double Y_Speed;
 	private double Seconds;
 	/*
 	 * 
 	 */
-	public MoveArmByTime(double ySpeed, double seconds) {
-		Y_Speed = ySpeed;
+	public WinchByTime(double ySpeed, double seconds) {
+		Y_Speed=ySpeed;
 		Seconds = seconds;
 		setTimeout(Seconds);
-		System.out.println("MoveArmByTime ySpeed=" + ySpeed + ", duration=" + seconds + " seconds");
+		System.out.println("WinchByTime yspeed=" + ySpeed + ", duration=" + seconds + " seconds");
 	}
     protected void initialize() {
     
@@ -24,7 +24,7 @@ public class MoveArmByTime extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.armMotor.set(Y_Speed);
+    	RobotMap.winch.set(Y_Speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,7 +34,7 @@ public class MoveArmByTime extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.armMotor.stopMotor();
+    	RobotMap.winch.stopMotor();
     }
 
     // Called when another command which requires one or more of the same
