@@ -13,7 +13,7 @@ public class AutonomousCommandGroup extends CommandGroup {
 		System.out.println("I'm in AutonomousCommandGroup");
 		if( RobotMap.runOnce ) {
 		
-//		addSequential(new DriveByTime(0.0, 0.3, 3.5));
+			addSequential(new DriveByTime(0.0, 0.3, 3.5));
 			addSequential(new MoveArmByTime(0.20, 2.0));
 			addParallel(new MoveArmByTime(-0.15, 15.0));
 			addParallel(new WinchAndRelease());
