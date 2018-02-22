@@ -22,11 +22,7 @@
 * [CTRE toolsuite installation instructions](http://www.ctr-electronics.com/downloads/pdf/CTRE%20Toolsuite%20Installation%20Guide.pdf)
 * [CTRE software downloads](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources)
 * [Programming the Radio](https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144986-programming-your-radio)
-* Current Software Versions - last updated 2018-02-21
-  * CTRE Phoenix Framework v5.2.2.0
-  * FRC_Radio_Configuration_18_1_0
-  * FRCUpdateSuite_2018.1.0
-  * Eclipse wpilib for java
+* [Current Software Versions]()
 
 # RoboRio local URL
 * [http://roborio-812-frc.local/](http://roborio-812-frc.local/)
