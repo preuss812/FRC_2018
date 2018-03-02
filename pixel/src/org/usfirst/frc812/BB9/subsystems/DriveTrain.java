@@ -51,7 +51,7 @@ public class DriveTrain extends Subsystem {
     	lastY = -powerTrim(xbc.getRawAxis(5)); // right xbox joystick Y axis (fwd, back)
     	lastRotate = powerTrim(xbc.getRawAxis(0)); // left xbox joystick X axis
     	
-    	System.out.println("lastx=" + lastX + " lastY=" + lastY + " lastRotate=" + lastRotate);
+//    	System.out.println("lastx=" + lastX + " lastY=" + lastY + " lastRotate=" + lastRotate);
     	robotDrive.driveCartesian(lastX, lastY, lastRotate);
 //    	robotDrive.arcadeDrive(right.getY(), -right.getX(), true);
     }

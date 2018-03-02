@@ -183,20 +183,8 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		//System.out.println("teleop periodic was called");
 
-		double IMUrate = imu.getQuaternionX();
-		double IMUyaw = imu.getMagX();
-		double IMUroll = imu.getAngleX();
-		double IMUpitch = imu.getAccelX();
-
-		System.out.println("  IMU rate =" +IMUrate);
-		System.out.println("  Yaw =" +IMUyaw);
-		System.out.println("  Roll =" +IMUroll);	
-		System.out.println("  Pitch =" +IMUpitch);
-
 		RobotMap.armMotor.set(Robot.oi.leftJoystick.getY());
-        System.out.println("Sensor Position = " + RobotMap.armMotor.getSelectedSensorPosition(0));
         
-        Robot.controlBoxSubsystem.printBits();
 
 		RobotMap.winch.set(Robot.oi.rightJoystick.getY());
 
