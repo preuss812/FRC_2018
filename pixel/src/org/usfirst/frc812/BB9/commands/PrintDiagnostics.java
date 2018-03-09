@@ -36,7 +36,9 @@ public class PrintDiagnostics extends Command {
 		
         Robot.controlBoxSubsystem.printBits();
         
-        System.out.println("Sensor Position = " + RobotMap.armMotor.getSelectedSensorPosition(0));
+//        System.out.println("Sensor Position = " + RobotMap.armMotor.getSelectedSensorPosition(0));
+//      System.out.println("Sensor Position = " + RobotMap.RightFront.getSelectedSensorPosition(0));
+
 
         done = true;
     }

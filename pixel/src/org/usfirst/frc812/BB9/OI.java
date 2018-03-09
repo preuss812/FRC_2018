@@ -76,11 +76,8 @@ public class OI {
         
               
         // Buttons for controlling the arm. 
-        lowArm = new JoystickButton(leftJoystick, 4);
-        midArm = new JoystickButton(leftJoystick,3);
-        highArm = new JoystickButton(leftJoystick,5);
         openCloseArm= new JoystickButton(leftJoystick,1);
-        printDiagnostics = new JoystickButton(rightJoystick, 1);
+        printDiagnostics = new JoystickButton(rightJoystick, 10);
         
         printDiagnostics.whileHeld(new PrintDiagnostics());
         openCloseArm.toggleWhenPressed(new OpenCloseArm());
