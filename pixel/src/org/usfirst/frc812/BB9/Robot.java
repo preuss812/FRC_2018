@@ -14,6 +14,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -58,6 +59,8 @@ public class Robot extends IterativeRobot {
 	public static UsbCamera camera0;
 	public static CameraServer cameraServer;
 	public static ControlBoxSubsystem controlBoxSubsystem;
+	public static String gameData;
+
 	
 	private static final int IMG_WIDTH = 320;
 	private static final int IMG_HEIGHT = 240;
@@ -150,6 +153,9 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		// schedule the autonomous command (example)
 		autonomousCommand = new AutonomousCommand();
+		
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		
 		System.out.println("auto init");
 		if (autonomousCommand != null)
 			autonomousCommand.start();
@@ -159,7 +165,7 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during autonomous
 	 */
 	public void autonomousPeriodic() {
-		System.out.println("auto running");
+	//	System.out.println("auto running");
 		Scheduler.getInstance().run();
 		//System.out.println("leftcount is " +LeftCount );
 		//System.out.println("rightcount is " + RightCount );

@@ -77,7 +77,7 @@ public class OI {
               
         // Buttons for controlling the arm. 
 
-        openCloseArm= new JoystickButton(xboxController,1);
+        openCloseArm= new JoystickButton(xboxController,6);
         printDiagnostics = new JoystickButton(rightJoystick, 10);
         
         printDiagnostics.whileHeld(new PrintDiagnostics());

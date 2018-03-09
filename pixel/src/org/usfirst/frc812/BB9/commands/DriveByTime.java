@@ -9,17 +9,19 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveByTime extends Command {
 	private double Y_Speed;
 	private double X_Speed;
+	private double Rotation;
 	private double Seconds;
 	/*
 	 * 
 	 */
-	public DriveByTime(double ySpeed, double xSpeed, double seconds) {
+	public DriveByTime(double ySpeed, double xSpeed, double rotation, double seconds) {
 		requires(Robot.driveTrain);
 		Y_Speed=ySpeed;
 		X_Speed = xSpeed;
+		Rotation = rotation;
 		Seconds = seconds;
 		setTimeout(Seconds);
-		System.out.println("DriveByTime " + ySpeed + " " + xSpeed + " " + seconds );
+//		System.out.println("DriveByTime " + ySpeed + " " + xSpeed + " " + seconds );
 	}
     protected void initialize() {
     
@@ -27,8 +29,8 @@ public class DriveByTime extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("DriveByTime:execute " + Y_Speed + " " + X_Speed);
-    	RobotMap.dtMecanumDrive.driveCartesian(Y_Speed, X_Speed, 0.0);
+//    	System.out.println("DriveByTime:execute " + Y_Speed + " " + X_Speed);
+    	RobotMap.dtMecanumDrive.driveCartesian(Y_Speed, X_Speed, Rotation);
   //  	RobotMap.dtMecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation);
     	//RobotMap.dtProductionRobotDrive.curvatureDrive(Speed, Direction,true);
     }
