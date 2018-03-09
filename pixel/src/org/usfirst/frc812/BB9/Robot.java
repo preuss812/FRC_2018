@@ -182,18 +182,10 @@ public class Robot extends IterativeRobot {
 		
 		Scheduler.getInstance().run();
 		//System.out.println("teleop periodic was called");
-		/*
-		System.out.println("Value sent to armMotor.set: pot= " + Robot.controlBoxSubsystem.getPotValue(0) +
-							" rightJoystick.getY= " + Robot.oi.rightJoystick.getY() + 
-							" armMotor.set= " + 
-							Robot.oi.rightJoystick.getY()*(Robot.controlBoxSubsystem.getPotValue(0)+1.0)/2.0);
 
-		//RobotMap.armMotor.set(Robot.oi.rightJoystick.getY()*(Robot.controlBoxSubsystem.getPotValue(0)+1.0)/2.0);
-		  */
-
-		RobotMap.armMotor.set(Robot.oi.leftJoystick.getY());
+		RobotMap.armMotor.set(Robot.oi.rightJoystick.getY()*(Robot.controlBoxSubsystem.getPotValue(0)+1.0)/2.0);
         
-		RobotMap.winch.set(Robot.oi.rightJoystick.getY());
+		RobotMap.winch.set(Robot.oi.leftJoystick.getY());
 
 	}
 		
