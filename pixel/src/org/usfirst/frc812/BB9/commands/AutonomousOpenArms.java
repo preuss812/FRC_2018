@@ -17,11 +17,11 @@ public class AutonomousOpenArms extends CommandGroup {
 			
 			if( Robot.gameData.charAt(0) == 'L' && 
 				Robot.controlBoxSubsystem.isSet(5) )    // switch 5 set == left side of field
-					addSequential(new OpenArms());      // Open the arms to drop the payload
+					Robot.pickerSubsystem.open();;      // Open the arms to drop the payload
 			
 			if( Robot.gameData.charAt(0) == 'R' &&
 				! Robot.controlBoxSubsystem.isSet(5) )  // switch 5 NOT set == right side of field
-					addSequential(new OpenArms());
+					Robot.pickerSubsystem.open();
 		}
 	}
 }

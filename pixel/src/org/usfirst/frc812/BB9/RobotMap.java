@@ -62,8 +62,6 @@ public class RobotMap {
 	private static double rampRateSeconds = 2.5;
 	private static double deadBandPercentage = 0.03;
 
-	public static boolean runOnce = true;
-
 	// ultrasonic sensor
 	public static AnalogInput ultraSensor;
 	public static AnalogInput analogPot;

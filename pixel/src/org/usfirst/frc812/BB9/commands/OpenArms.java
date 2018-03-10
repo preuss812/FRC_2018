@@ -29,7 +29,6 @@ public class OpenArms extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.dtMecanumDrive.stopMotor();
     }
 
     // Called when another command which requires one or more of the same

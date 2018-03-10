@@ -60,7 +60,7 @@ public class Robot extends IterativeRobot {
 	public static CameraServer cameraServer;
 	public static ControlBoxSubsystem controlBoxSubsystem;
 	public static String gameData;
-
+	public static boolean runOnce;
 	
 	private static final int IMG_WIDTH = 320;
 	private static final int IMG_HEIGHT = 240;
@@ -155,7 +155,8 @@ public class Robot extends IterativeRobot {
 		autonomousCommand = new AutonomousCommand();
 		
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		
+		runOnce = true;
+//		gameData = "RRR";
 		System.out.println("auto init");
 		if (autonomousCommand != null)
 			autonomousCommand.start();
