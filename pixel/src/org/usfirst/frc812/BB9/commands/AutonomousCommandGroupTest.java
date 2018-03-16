@@ -13,8 +13,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * - Robot.controlBoxSubsystem.isSwitchCenter()
  * - Robot.controlBoxSubsystem.isSwitchRight()
  */
-public class AutonomousCommandGroup extends CommandGroup {
-	AutonomousCommandGroup() {
+public class AutonomousCommandGroupTest extends CommandGroup {
+	AutonomousCommandGroupTest() {
 		System.out.println("AutonomousCommandGroup called");
 		long sleepDuration;
 		if( Robot.runOnce ) {
@@ -27,7 +27,7 @@ public class AutonomousCommandGroup extends CommandGroup {
 			} catch (InterruptedException e) {
 			}
 			
-			if( ! Robot.controlBoxSubsystem.isSet(7) ) {
+			if( ! Robot.controlBoxSubsystem.isSet(7) && Robot.controlBoxSubsystem.isSet(4) ) {
 				if( Robot.controlBoxSubsystem.isSwitchLeft())  {
 			//input parameters(xSpeed, ySpeed, time in seconds)
 					//
@@ -81,7 +81,46 @@ public class AutonomousCommandGroup extends CommandGroup {
 
 					// Perform a sequence
 				}
-				
+			}
+				if( ! Robot.controlBoxSubsystem.isSet(7) && !Robot.controlBoxSubsystem.isSet(4) ) {
+					//input parameters(xSpeed, ySpeed, time in seconds)
+					//
+					//          -X
+					//          |
+					//        |
+					//      |
+					//      o
+					if( Robot.gameData.length() > 0) {
+							
+							System.out.println("gameData string = >" + Robot.gameData + "<");
+							
+							if( Robot.gameData.charAt(0) == 'L'  ){
+							addSequential(new DriveByTime( 0.0,  0.4,  0.0,  0.5));//(Y, X, rotation, time) drives 13.5 feet forward
+							addSequential(new DriveByTime( 0.0,  0.0, -0.5,  0.80));// rotate left 90 degrees
+							addSequential(new DriveByTime( 0.0,  0.3,  0.0,  1.20));//(Y, X, time) drives six feet forward
+							addSequential(new DriveByTime( 0.0,  0.0, 0.5,  0.80));// rotate right 90 degrees
+							addSequential(new DriveByTime( 0.0,  0.4,  0.0,  3.1));//(Y, X, rotation, time) drives 13.5 feet forward
+							addSequential(new WinchByTime(1.0, 7.85));      // winch in to open the arm (power, time in seconds)
+				//			addParallel(new MoveArmByTime(-0.30,3.0));    // keep the arm up, fight gravity
+							addSequential(new MoveArmByTime(0.20, 0.75));  // Move Arm Down into drop position
+							addSequential(new OpenArms());
+							addSequential(new MoveArmByTime(-0.3, 0.75));  // keep the arm off the switch
+							}
+							
+							else if( Robot.gameData.charAt(0) == 'R'){
+								addSequential(new DriveByTime( 0.0,  0.4,  0.0,  0.5));//(Y, X, rotation, time) drives 13.5 feet forward
+								addSequential(new DriveByTime( 0.0,  0.0, 0.5,  0.80));// rotate right 90 degrees
+								addSequential(new DriveByTime( 0.0,  0.3,  0.0,  1.20));//(Y, X, time) drives six feet forward
+								addSequential(new DriveByTime( 0.0,  0.0, -0.5,  0.80));// rotate left 90 degrees
+								addSequential(new DriveByTime( 0.0,  0.4,  0.0,  3.1));//(Y, X, rotation, time) drives 13.5 feet forward
+								addSequential(new WinchByTime(1.0, 7.85));      // winch in to open the arm (power, time in seconds)
+					//			addParallel(new MoveArmByTime(-0.30,3.0));    // keep the arm up, fight gravity
+								addSequential(new MoveArmByTime(0.20, 0.75));  // Move Arm Down into drop position
+								addSequential(new OpenArms());
+								addSequential(new MoveArmByTime(-0.3, 0.75));  // keep the arm off the switch
+							}
+				}
+
 				Robot.runOnce = false;
 			} else {
 				System.out.println("Autonomous mode = DISABLED");
