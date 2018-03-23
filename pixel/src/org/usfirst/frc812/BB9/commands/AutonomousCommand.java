@@ -55,13 +55,28 @@ public class AutonomousCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	boolean testMode = false;
+    	
     	if( Robot.runOnce ) {
 	    	System.out.println("AutonomousCommmand execute() activated");
-	    	AutonomousCommandGroup autoCmdGroup;
-	    	autoCmdGroup =new AutonomousCommandGroup();
-	    	if(autoCmdGroup != null) {
-	    		autoCmdGroup.start();
-	    		this.end();
+	    	
+	    	testMode = true;
+
+	    	if( testMode ) {
+		    	AutonomousCommandGroupTest autoCmdGroupTest;
+		    	autoCmdGroupTest = new AutonomousCommandGroupTest();
+		      	if(autoCmdGroupTest != null) {
+		    		autoCmdGroupTest.start();
+		    		this.end();
+		      	}
+	    	} else {
+	    		
+	    		AutonomousCommandGroup autoCmdGroup;	    	
+	    		autoCmdGroup =new AutonomousCommandGroup();
+	     		if(autoCmdGroup != null) {
+	    			autoCmdGroup.start();
+	    			this.end();
+	    		}
 	    	}
 	    }
     }
